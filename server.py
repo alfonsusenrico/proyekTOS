@@ -52,9 +52,9 @@ def setToken(sid, data):
 #inputData
 @socket.on('afterInput')
 def afterInput(sid, data):
-    room = str(data)
-    socket.enter_room(sid, room)
-    socket.emit('inputted', data)
+    rm = str(data)
+    socket.enter_room(sid, rm)
+    socket.emit('inputted', data, room=rm)
 
 #CheckSystem
 @socket.on('checkSystem')
