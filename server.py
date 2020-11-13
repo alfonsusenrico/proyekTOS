@@ -35,17 +35,22 @@ def connect(sid, data):
 
 @socket.on('addUser')
 def addUser(sid, data):
+    for user in users:
+        if user.user_id == data:
+            return
     users.append(User(data))
     socket.emit('afterData', data)
 
 @socket.on('tokenGenerated')
 def setToken(sid, data):
+    for device in allDevice
+        if device.token == data['token']:
+            return
     for user in users:
         if user.user_id == data['id']:
             user.addDevice(Device(data['id'], data['token']))
             allDevice.append(Device(data['id'], data['token']))
             socket.enter_room(sid, str(data['token']))
-            #socket.emit('afterToken', data.token)
             break
 
 #CLIENT

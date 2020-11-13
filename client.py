@@ -12,7 +12,7 @@ socket.emit('afterInput', token)
 system = platform.system()
 @socket.on('inputted')
 def inputted(data):
-    print('Device terdaftar dengan token', data)
+    print('Device terdaftar dengan token', data, 'silahkan gunakan command yang tersedia di bot')
 
 @socket.event
 def connect():
@@ -28,7 +28,7 @@ def sysCheck(data):
 @socket.on('client_launchFirefox')
 def client_launchFirefox(data):
     if system.lower() == 'windows':
-        subprocess.call(["C:\\Program Files\\Mozilla Firefox\\firefox.exe"])
+        subprocess.call(['C:\\Program Files\\Mozilla Firefox\\firefox.exe'])
     elif system.lower() == 'linux':
         subprocess.call(['firefox'])
     msg = 'Firefox telah dijalankan'
@@ -38,17 +38,17 @@ def client_launchFirefox(data):
 @socket.on('client_launchChrome')
 def client_launchChrome(data):
     if system.lower() == 'windows':
-        subprocess.call(["C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"])
-        msg = 'Chrome telah dijalankan'
+        subprocess.call(['C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'])
     elif system.lower() == 'linux':
-        msg = 'Maaf kami tidak support chrome di Linux'
+        subprocess.call(['chrome'])
+    msg = 'Chrome telah dijalankan'
     socket.emit('client_chromeLaunched', {'id' : data['id'], 'room': data['room'], 'message' : msg})
 
 #shutdown
 @socket.on('client_turnOff')
 def client_turnOff(data):
     if system.lower() == 'windows':
-        subprocess.call(["shutdown -s"])
+        subprocess.call(['shutdown -s'])
     elif system.lower() == 'linux':
         subprocess.call(['shutdown now'])
     msg = 'PC / Laptop anda telah menerima command shutdown'
@@ -58,7 +58,7 @@ def client_turnOff(data):
 @socket.on('client_restart')
 def client_restart(data):
     if system.lower() == 'windows':
-        subprocess.call(["shutdown -r"])
+        subprocess.call(['shutdown -r'])
     elif system.lower() == 'linux':
         subprocess.call(['reboot'])
     msg = 'PC / Laptop anda telah menerima command restart'
