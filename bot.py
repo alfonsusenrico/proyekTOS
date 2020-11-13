@@ -10,7 +10,7 @@ dispatcher = updater.dispatcher
 
 #socket vars
 socket = socketio.Client()
-socket.connect('http://84db0bdc1324.ngrok.io')
+socket.connect('http://1ce0ea9ea35c.ngrok.io')
 
 #start
 def start(update, context):

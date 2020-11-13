@@ -4,7 +4,7 @@ import subprocess
 
 socket = socketio.Client()
 
-socket.connect('http://84db0bdc1324.ngrok.io')
+socket.connect('http://1ce0ea9ea35c.ngrok.io')
 print('Halo, silahkan menggunakan bot @proyekTOS_bot dengan command /start')
 print('Silahkan masukkan token yang didapat dari bot dengan command /token: '),
 token = input()
